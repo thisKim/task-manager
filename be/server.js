@@ -93,7 +93,7 @@ app.delete("/api/tasks/:id", async function (req, res) {
   if (!task) {
     res.sendStatus(404);
   }
-  delete task;
+  delete tasks[req.params.id];
 
   await writeTasks(tasks);
 
