@@ -110,6 +110,7 @@ export default function Tasks() {
               <Table.Row
                 key={task.id}
                 className={task.status === "completed" ? "bg-green-950" : ""}
+                style={{ transition: "background-color .25s linear" }}
               >
                 <Table.Cell>{task.id}</Table.Cell>
                 <Table.Cell>
