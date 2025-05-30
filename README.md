@@ -1,5 +1,6 @@
-<h1>task-manager</h1>
-At the root of task-manager run the following command. This will install packages and start the backend and frontend services.
+# Task-Manager
+
+At the root of task-manager, run the following commands. This will install packages and start the backend (node) and frontend (Next) services.
 
 ```
 npm install && npm start
