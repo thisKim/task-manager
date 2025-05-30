@@ -1,0 +1,17 @@
+{
+  "name": "task-manager",
+  "workspaces": [
+    "be",
+    "fe"
+  ],
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "scripts": {
+    "start": "npm run start:fe & npm run start:be ",
+    "start:be": "cd be && npm run start",
+    "start:fe": "cd fe && npm run dev"
+  }
+}
