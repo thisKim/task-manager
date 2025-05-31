@@ -25,7 +25,7 @@ function TaskStatus({ task, sort, filter }) {
 
   return (
     <Select.Root
-      defaultValue={task.status ?? "pending"}
+      defaultValue={"pending"}
       value={task.status ?? "pending"}
       onValueChange={(event) => handleStatus(event, task)}
       disabled={loading}

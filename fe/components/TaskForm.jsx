@@ -10,12 +10,16 @@ import {
   TextArea,
   TextField,
 } from "@radix-ui/themes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TaskForm(props) {
   const { tasks, setTasks } = useTasks();
 
-  const [task, setTask] = useState(props.task ?? { status: "pending" });
+  const [task, setTask] = useState({});
+
+  useEffect(() => {
+    setTask(props.task);
+  }, [props.task]);
 
   const handleInput = (event) => {
     const newTask = { ...task, [event.target.name]: event.target.value };
@@ -77,7 +81,7 @@ export default function TaskForm(props) {
             </Text>
             <TextField.Root
               name="title"
-              defaultValue={task.title}
+              defaultValue={task?.title}
               onChange={handleInput}
             />
           </label>
@@ -87,7 +91,7 @@ export default function TaskForm(props) {
             </Text>
             <TextArea
               name="description"
-              defaultValue={task.description}
+              defaultValue={task?.description}
               onChange={handleInput}
             />
           </label>
@@ -96,7 +100,8 @@ export default function TaskForm(props) {
               Status
             </Text>
             <Select.Root
-              defaultValue={props.task?.status ?? "pending"}
+              defaultValue={"pending"}
+              value={task?.status ?? "pending"}
               onValueChange={handleStatus}
             >
               <Select.Trigger />
@@ -119,7 +124,7 @@ export default function TaskForm(props) {
           <Dialog.Close>
             <Button
               onClick={props.task?.id ? handleUpdate : handleCreate}
-              disabled={!task.title}
+              disabled={!task?.title}
             >
               Save
             </Button>
